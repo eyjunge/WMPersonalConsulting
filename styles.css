@@ -72,3 +72,25 @@ section {
     margin-right: 5px;
 }
 
+
+/* Responsive Design Anpassungen */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column; /* Navigationslinks untereinander anordnen */
+        align-items: center;
+    }
+    #languageSwitch {
+        position: static; /* Lässt das Element mit dem Inhalt fließen */
+        margin-bottom: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        font-size: 14px; /* Kleinere Schriftgröße für mobile Geräte */
+    }
+    h1, h2 {
+        font-size: 1.5em; /* Passt Überschriftengrößen an kleinere Geräte an */
+    }
+}
+
