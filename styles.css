@@ -1,0 +1,74 @@
+/* Allgemeine Stile */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+header, footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+main {
+    padding: 20px;
+}
+
+section {
+    margin-bottom: 20px;
+}
+.navbar {
+    display: flex;
+    justify-content: space-between; /* Verteilt die Links gleichmäßig */
+    padding: 10px 20px; /* Optional: etwas Innenabstand */
+    background-color: #f8f8f8; /* Optional: Hintergrundfarbe */
+}
+
+.navbar a {
+    text-decoration: none;
+    color: #333; /* Linkfarbe */
+    font-weight: bold;
+}
+
+.navbar a.active {
+    font-weight: bold;
+    color: green; /*Beispiel: Blaue Farbe*/
+    /*text-decoration: underline; /*Beispiel: Unterstrichen */
+}
+
+.ulD {
+    list-style-position: inside; /* Ändert die Position der Aufzählungszeichen */
+    padding-left: 0; /* Entfernt die Standard-Einrückung der Liste */
+}
+
+.Dienstleistungsunterpunkte {
+    padding-left: 20px; /* Fügt eine Einrückung hinzu, um die Unterpunkte zu kennzeichnen */
+}
+
+
+.center{
+    text-align: center;
+}
+
+.linkliste{
+    list-style-type: none; /* Entfernt die Aufzählungszeichen */
+}
+
+
+#languageSwitch {
+    position: absolute;
+    top: 10 px;
+    right: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+#languageSwitch span {
+    font-size: 16px;
+    margin-right: 5px;
+}
+
