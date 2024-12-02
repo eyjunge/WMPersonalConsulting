@@ -4,6 +4,10 @@ body {
     margin: 0;
     padding: 0;
     background-color: #f4f4f4;
+    height: 100vh; /* Stellt sicher, dass der Body immer die gesamte Höhe des Viewports einnimmt */
+    display: flex;
+    flex-direction: column; /* Lässt die Kinder (Hauptinhalt und Footer) vertikal anordnen */
+
 }
 
 header, footer {
@@ -11,10 +15,20 @@ header, footer {
     color: #fff;
     padding: 20px;
     text-align: center;
+    position: relative; /* Position für das Hamburger-Icon */
 }
 
 main {
     padding: 20px;
+    flex: 1; /* Stellt sicher, dass der Hauptinhalt den verfügbaren Platz ausfüllt */
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    margin-top: auto; /* Lässt den Footer immer nach unten schieben */
 }
 
 section {
@@ -22,7 +36,8 @@ section {
 }
 .navbar {
     display: flex;
-    justify-content: space-between; /* Verteilt die Links gleichmäßig */
+    justify-content: center;
+    align-items: center;
     padding: 10px 20px; /* Optional: etwas Innenabstand */
     background-color: #f8f8f8; /* Optional: Hintergrundfarbe */
 }
@@ -31,6 +46,47 @@ section {
     text-decoration: none;
     color: #333; /* Linkfarbe */
     font-weight: bold;
+    padding: 10px;
+}
+
+/* Hamburger-Icon */
+.menu-icon {
+    position: absolute;
+    right: 25px; /* Rechtsbündig im Header */
+    top: 51%; /* Vertikal in der Mitte des Headers */
+    transform: translateY(-50%); /* Zentriert das Icon genau mittig */
+    display: none; /* Standardmäßig nicht sichtbar */
+    font-size: 30px;
+    cursor: pointer;
+}
+
+/* Basis-Stil für die Linien */
+.menu-icon span {
+    display: block;
+    width: 17.75px;
+    height: 2.5px;
+    background-color: #fff;
+    margin: 4px auto;
+    transition: all 0.3s ease-in-out; /* Weiche Animation */
+}
+
+/* Zustand für das "X" */
+.menu-icon.active span:nth-child(1) {
+    transform:  translate(0px, 6.5px) rotate(45deg) ;
+}
+
+.menu-icon.active span:nth-child(2) {
+    opacity: 0; /* Mittlere Linie verschwinden lassen */
+}
+
+.menu-icon.active span:nth-child(3) {
+    transform: translate(0px, -6.5px) rotate(-45deg) ;
+}
+
+/* Verstecke die Links auf mobilen Geräten */
+.navbar-links {
+    font-weight: bold;
+    color: green;
 }
 
 .navbar a.active {
@@ -72,20 +128,50 @@ section {
     margin-right: 5px;
 }
 
-
 /* Responsive Design Anpassungen */
-@media (max-width: 768px) {
+@media (max-width: 795px) {
     .navbar {
         flex-direction: column; /* Navigationslinks untereinander anordnen */
         align-items: center;
     }
+
+    /* Hamburger-Icon anzeigen auf mobilen Geräten */
+    .menu-icon {
+        display: block;
+    }
+
+    /* Links standardmäßig ausblenden auf mobilen Geräten */
+    .navbar-links {
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Zentrieren der Links */
+        justify-content: center; /* Vertikal zentrieren */
+        width: 100%;
+        background-color: #f8f8f8;
+        overflow: hidden; /* Verhindert, dass Inhalte sichtbar sind, wenn das Menü geschlossen ist */
+        max-height: 0; /* Anfangszustand: komplett geschlossen */
+        opacity: 0; /* Anfangszustand: unsichtbar */
+        transition: max-height 0.5s ease, opacity 0.5s ease; /* Animiert Höhe und Sichtbarkeit */
+    }
+
+    /* Links anzeigen, wenn das Menü geöffnet ist */
+    .navbar-links.active {
+        opacity: 1; /* Vollständig sichtbar */
+    }
+
+
+
+
     #languageSwitch {
         position: static; /* Lässt das Element mit dem Inhalt fließen */
+        display: flex; /* Beibehaltung der Flexbox für Anordnung */
+        margin-left: auto; /* Schiebt das Element nach rechts */
+        justify-content: flex-end; /* Rechtsbündige Ausrichtung der Inhalte */
         margin-bottom: 10px;
     }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 583px) {
     body {
         font-size: 14px; /* Kleinere Schriftgröße für mobile Geräte */
     }
@@ -93,4 +179,3 @@ section {
         font-size: 1.5em; /* Passt Überschriftengrößen an kleinere Geräte an */
     }
 }
-
