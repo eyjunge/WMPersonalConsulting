@@ -151,7 +151,7 @@ section {
         overflow: hidden; /* Verhindert, dass Inhalte sichtbar sind, wenn das Menü geschlossen ist */
         max-height: 0; /* Anfangszustand: komplett geschlossen */
         opacity: 0; /* Anfangszustand: unsichtbar */
-        transition: max-height 5s ease, opacity 0.5s ease; /* Animiert Höhe und Sichtbarkeit */
+        transition: max-height 0.5s ease, opacity 0.5s ease; /* Animiert Höhe und Sichtbarkeit */
     }
 
     /* Links anzeigen, wenn das Menü geöffnet ist */
